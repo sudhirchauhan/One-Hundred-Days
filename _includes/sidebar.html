@@ -1,4 +1,17 @@
-<div class="col-box col-box-author">
+<div class="col-box post-toc hide">
+  <div class="col-box-title">Table of Content</div>
+</div>
+
+<div class="col-box">
+  <div class="col-box-title">Newest Posts</div>
+  <ul class="post-list">
+    {% for post in site.posts reversed limit:5 %}
+      <li><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% comment %}<div class="col-box col-box-author">
   <img class="avatar" src="{{ site.avatar }}" alt="{{ site.author }}">
   <div class="col-box-title name">{{ site.author }}</div>
   <p>{{ site.profile }}</p>
@@ -13,17 +26,7 @@
     <a href="mailto:{{ site.email }}">Email</a>
     {% endif %}
   </p>
-</div>
+</div>{% endcomment %}
 
-<div class="col-box">
-  <div class="col-box-title">Newest Posts</div>
-  <ul class="post-list">
-    {% for post in site.posts limit:5 %}
-      <li><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
 
-<div class="col-box post-toc hide">
-  <div class="col-box-title">TOC</div>
-</div>
+
